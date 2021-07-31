@@ -1,0 +1,12 @@
+version: '3.4'
+
+services: 
+    api:
+        tty: true
+        volumes: 
+            - ./containers/api/:/app
+        build: 
+            context: 
+                ./containers/api/
+
+                
