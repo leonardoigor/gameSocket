@@ -5,6 +5,6 @@
     "legacyWatch": true,
     "ext": "ts",
     "execMap": {
-        "ts": "sucrase-node src/index.ts"
+        "ts": "yarn build &&  yarn devBuildd"
     }
 }

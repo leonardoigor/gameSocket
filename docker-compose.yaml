@@ -12,3 +12,14 @@ services:
                 ./containers/api/
 
                 
+    client:
+        tty: true
+        ports:
+            - 3000
+        volumes: 
+            - ./containers/client/:/app
+        build: 
+            context: 
+                ./containers/client/
+
+                
