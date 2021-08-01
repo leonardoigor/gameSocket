@@ -1,0 +1,10 @@
+{
+    "watch": [
+        "src"
+    ],
+    "legacyWatch": true,
+    "ext": "ts",
+    "execMap": {
+        "ts": "sucrase-node src/index.ts"
+    }
+}
