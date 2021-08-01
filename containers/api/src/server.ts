@@ -1,19 +1,34 @@
 import express from 'express'
 import Socket from './socket'
+import http from 'http'
+
+
+
+
+
+
+
 
 
 class Server extends Socket {
     client: express.Express;
     _url!: string
     _port!: number
+    _server: http.Server
     constructor() {
         super()
     }
     createClient(port: number = 3000, url: string = "string",) {
         this.client = express()
-
+        this.socketStart(this.getServer())
         this._setPort(port)
         this._setUrl(url)
+    }
+    getClient() {
+        return this.client
+    }
+    getServer() {
+        return this._server
     }
     _setUrl(url: string) {
         this._url = url
@@ -28,7 +43,7 @@ class Server extends Socket {
         return this._port
     }
     listen(callback = (port: number, uri: string) => { }) {
-        this.client.listen(this._getPort(), this._getUrl(), () => callback(this._getPort(), this._getUrl() || "localhost"))
+        this.getClient().listen(this._getPort(), this._getUrl(), () => callback(this._getPort(), this._getUrl() || "localhost"))
     }
 }
 
